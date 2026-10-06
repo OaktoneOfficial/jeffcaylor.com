@@ -19,7 +19,11 @@ html{scroll-behavior:smooth}img{max-width:100%}
 .menu-btn{display:none}
 .menu-btn .icon-close{display:none}
 @media (max-width:720px){
-  .hero{min-height:80svh}
+  .hero{min-height:64svh}
+  .hide-mobile{display:none !important}
+  .credits{display:grid !important;grid-template-columns:repeat(3,auto);justify-content:space-between;align-items:baseline;gap:10px 12px !important;padding-top:22px !important;padding-bottom:22px !important}
+  .credits > span:first-child,.credits > span:last-child{grid-column:1 / -1}
+  .credits > span:not(:first-child):not(:last-child){font-size:clamp(17px,5.4vw,22px) !important;letter-spacing:0.04em !important;white-space:nowrap}
   .hero header{flex-wrap:nowrap !important;z-index:60}
   .menu-btn{display:flex;align-items:center;justify-content:center;width:44px;height:44px;margin-right:-10px;padding:0;background:transparent;border:0;color:#F1ECE3;cursor:pointer;position:relative;z-index:70}
   .site-nav{display:none !important}
@@ -50,10 +54,10 @@ html{scroll-behavior:smooth}img{max-width:100%}
 </nav>
 </header>
 <div style="position: relative; flex-grow: 1; width: 100%; max-width: 1360px; margin: 0 auto; box-sizing: border-box; padding: 0 24px 72px; display: flex; flex-direction: column; justify-content: flex-end; gap: 20px">
-<p style="margin: 0; font-size: 14px; letter-spacing: 0.2em; text-transform: uppercase; color: #BBD7B7">Founder of Oaktone · Franklin, TN</p>
-<h1 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: clamp(64px, 11vw, 168px); line-height: 0.9; letter-spacing: 0.01em; text-transform: uppercase">Jeff Caylor</h1>
+<p class="hide-mobile" style="margin: 0; font-size: 14px; letter-spacing: 0.2em; text-transform: uppercase; color: #BBD7B7">Founder of Oaktone · Franklin, TN</p>
+<h1 class="hide-mobile" style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: clamp(64px, 11vw, 168px); line-height: 0.9; letter-spacing: 0.01em; text-transform: uppercase">Jeff Caylor</h1>
 <p style="margin: 0; max-width: 620px; font-size: clamp(20px, 2vw, 26px); line-height: 1.4">Founder, worship leader and playback specialist, exploring atmosphere, technology, beauty and human attention.</p>
-<div style="display: flex; flex-wrap: wrap; gap: 12px; padding-top: 8px">
+<div class="hide-mobile" style="display: flex; flex-wrap: wrap; gap: 12px; padding-top: 8px">
 <a href="#notes" style="background: #F1ECE3; color: #0D0D0C; text-decoration: none; padding: 14px 26px; font-weight: 600; font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase">Read the notes</a>
 <a href="#contact" style="border: 1px solid rgba(241,236,227,0.6); text-decoration: none; padding: 14px 26px; font-weight: 600; font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase">Get in touch</a>
 </div>
@@ -61,7 +65,7 @@ html{scroll-behavior:smooth}img{max-width:100%}
 </section>
 
 <section aria-label="Credibility" style="border-bottom: 1px solid #2A2825">
-<div style="max-width: 1360px; margin: 0 auto; padding: 26px 24px; display: flex; flex-wrap: wrap; gap: 10px 40px; align-items: center; justify-content: space-between; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #A9A196">
+<div class="credits" style="max-width: 1360px; margin: 0 auto; padding: 26px 24px; display: flex; flex-wrap: wrap; gap: 10px 40px; align-items: center; justify-content: space-between; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #A9A196">
 <span>Oaktone gear on tour with</span>
 <span style="font-family: 'Barlow Condensed', sans-serif; font-size: 26px; letter-spacing: 0.08em; color: #F1ECE3">Post Malone</span>
 <span style="font-family: 'Barlow Condensed', sans-serif; font-size: 26px; letter-spacing: 0.08em; color: #F1ECE3">Adele</span>
