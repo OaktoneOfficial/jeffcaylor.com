@@ -13,17 +13,36 @@ body{margin:0;background:#0D0D0C}
 a{color:#F1ECE3}a:hover{color:#FFFFFF}
 input,textarea,button{font:inherit}
 </style>
-<style>html{scroll-behavior:smooth}img{max-width:100%}</style>
+<style>
+html{scroll-behavior:smooth}img{max-width:100%}
+.hero{min-height:92vh;min-height:92svh}
+.menu-btn{display:none}
+.menu-btn .icon-close{display:none}
+@media (max-width:720px){
+  .hero{min-height:80svh}
+  .hero header{flex-wrap:nowrap !important;z-index:60}
+  .menu-btn{display:flex;align-items:center;justify-content:center;width:44px;height:44px;margin-right:-10px;padding:0;background:transparent;border:0;color:#F1ECE3;cursor:pointer;position:relative;z-index:70}
+  .site-nav{display:none !important}
+  .site-nav.open{display:flex !important;position:fixed;inset:0;z-index:65;background:rgba(13,13,12,0.97);flex-direction:column;align-items:center;justify-content:center;gap:12px !important;font-size:22px !important}
+  .menu-btn[aria-expanded="true"] .icon-open{display:none}
+  .menu-btn[aria-expanded="true"] .icon-close{display:block}
+  body.menu-open{overflow:hidden}
+}
+</style>
 </head>
 <body>
 <div style="background: #0D0D0C; color: #F1ECE3; font-family: 'Figtree', system-ui, sans-serif; font-size: 18px; line-height: 1.6">
 
-<section id="top" style="position: relative; min-height: 92vh; display: flex; flex-direction: column; background: #24221F">
+<section id="top" class="hero" style="position: relative; display: flex; flex-direction: column; background: #24221F">
 <img src="img/hero-silhouette.jpg" alt="Jeff Caylor singing onstage in blue light" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 72% center; display: block">
 <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(13,13,12,0.55) 0%, rgba(13,13,12,0) 30%, rgba(13,13,12,0) 50%, rgba(13,13,12,0.92) 100%)"></div>
 <header style="position: relative; width: 100%; max-width: 1360px; margin: 0 auto; box-sizing: border-box; padding: 28px 24px; display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between">
 <a href="#top" style="font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 22px; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none">Jeff Caylor</a>
-<nav aria-label="Main" style="display: flex; flex-wrap: wrap; gap: 4px 28px; font-size: 14px; letter-spacing: 0.12em; text-transform: uppercase">
+<button type="button" class="menu-btn" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+<svg class="icon-open" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
+<svg class="icon-close" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+</button>
+<nav id="site-nav" class="site-nav" aria-label="Main" style="display: flex; flex-wrap: wrap; gap: 4px 28px; font-size: 14px; letter-spacing: 0.12em; text-transform: uppercase">
 <a href="#notes" style="text-decoration: none; padding: 12px 0">Notes</a>
 <a href="#about" style="text-decoration: none; padding: 12px 0">About</a>
 <a href="#work" style="text-decoration: none; padding: 12px 0">Work with me</a>
@@ -155,5 +174,21 @@ input,textarea,button{font:inherit}
 </footer>
 
 </div>
+<script>
+(function(){
+  var btn=document.querySelector('.menu-btn'), nav=document.getElementById('site-nav');
+  if(!btn||!nav) return;
+  function set(open){
+    nav.classList.toggle('open',open);
+    btn.setAttribute('aria-expanded',open?'true':'false');
+    btn.setAttribute('aria-label',open?'Close menu':'Open menu');
+    document.body.classList.toggle('menu-open',open);
+  }
+  btn.addEventListener('click',function(){set(!nav.classList.contains('open'));});
+  nav.addEventListener('click',function(e){if(e.target.closest('a')) set(false);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape') set(false);});
+  window.addEventListener('resize',function(){if(window.innerWidth>720) set(false);});
+})();
+</script>
 </body>
 </html>
