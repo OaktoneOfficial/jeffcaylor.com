@@ -16,12 +16,25 @@ input,textarea,button{font:inherit}
 <style>
 html{scroll-behavior:smooth}img{max-width:100%}
 .hero{min-height:92vh;min-height:92svh}
+.post-strip{display:grid;grid-auto-flow:column;grid-auto-columns:clamp(220px,22vw,300px);gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-left:0;padding-bottom:16px;scrollbar-width:thin;scrollbar-color:#3A3631 transparent}
+.post{display:flex;flex-direction:column;gap:8px;text-decoration:none;scroll-snap-align:start}
+.post img{width:100%;aspect-ratio:9/16;object-fit:cover;display:block;background:#24221F;transition:opacity .2s}
+.post:hover img{opacity:.85}
+.post-date{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#A9A196;padding-top:8px}
+.post-title{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:28px;line-height:1.02;text-transform:uppercase;color:#F1ECE3}
+.post-dek{font-size:15px;line-height:1.5;color:#CDC5B9}
+.strip-nav{display:flex;gap:8px}
+.strip-btn{width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:transparent;border:1px solid #4A453E;border-radius:50%;color:#F1ECE3;cursor:pointer}
+.strip-btn:hover{border-color:#BBD7B7;color:#BBD7B7}
+.strip-btn:disabled{opacity:.3;cursor:default}
 .menu-btn{display:none}
 .menu-btn .icon-close{display:none}
 @media (max-width:720px){
   .hero{min-height:76vh;min-height:76svh}
   .hero-body{justify-content:center !important;padding-bottom:24px !important}
   .hide-mobile{display:none !important}
+  .post-strip{grid-auto-columns:68vw;margin-right:-24px;padding-right:24px}
+  .strip-nav{display:none}
   .credits{display:grid !important;grid-template-columns:repeat(3,auto);justify-content:space-between;align-items:baseline;gap:10px 12px !important;padding-top:22px !important;padding-bottom:22px !important}
   .credits > span:first-child,.credits > span:last-child{grid-column:1 / -1}
   .credits > span:not(:first-child):not(:last-child){font-size:clamp(17px,5.4vw,22px) !important;letter-spacing:0.04em !important;white-space:nowrap}
@@ -96,35 +109,35 @@ html{scroll-behavior:smooth}img{max-width:100%}
 <p style="margin: 0; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: #BBD7B7">Notes</p>
 <h2 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: clamp(44px, 5vw, 72px); line-height: 0.95; text-transform: uppercase">Field notes. Things I'm noticing.</h2>
 </div>
-<a href="https://www.linkedin.com/" style="font-size: 14px; letter-spacing: 0.12em; text-transform: uppercase; padding: 12px 0">All articles on LinkedIn ↗</a>
+<div style="display: flex; align-items: center; gap: 20px">
+<a href="https://www.linkedin.com/in/jeffcaylor/recent-activity/all/" target="_blank" rel="noopener" style="font-size: 14px; letter-spacing: 0.12em; text-transform: uppercase; padding: 12px 0">All posts on LinkedIn ↗</a>
+<span class="strip-nav"><button type="button" class="strip-btn" data-dir="-1" aria-label="Previous posts"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button><button type="button" class="strip-btn" data-dir="1" aria-label="More posts"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button></span>
 </div>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px">
-<a href="#" style="text-decoration: none; display: flex; flex-direction: column; gap: 16px; background: #161513">
-<img src="img/reach-blue.jpg" alt="Jeff Caylor reaching out with a microphone in blue light" style="width: 100%; aspect-ratio: 1.91 / 1; object-fit: cover; object-position: 45% center; display: block">
-<div style="padding: 0 24px 28px; display: flex; flex-direction: column; gap: 10px">
-<span style="font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #A9A196">LinkedIn article · [DATE]</span>
-<span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 32px; line-height: 1.02; text-transform: uppercase">Two Car Horns</span>
-<span style="color: #CDC5B9; font-size: 16px; line-height: 1.5">Sometimes what we need is not silence. Just a five-second delay before amplification.</span>
-<span style="font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: #BBD7B7; padding-top: 6px">Read on LinkedIn ↗</span>
 </div>
+<div class="post-strip" id="post-strip">
+<a class="post" href="https://www.linkedin.com/posts/jeffcaylor_ive-been-thinking-about-how-much-we-underestimate-ugcPost-7521441534756605952-Rgq0/" target="_blank" rel="noopener">
+<img src="img/posts/2026-10-29-knowing-who-to-ask.jpg" alt="Video: Knowing who to ask" loading="lazy">
+<span class="post-date">LinkedIn &#183; Oct 29, 2026</span>
+<span class="post-title">Knowing who to ask</span>
+<span class="post-dek">There&#8217;s a lot of wisdom in knowing who to ask.</span>
 </a>
-<a href="#" style="text-decoration: none; display: flex; flex-direction: column; gap: 16px; background: #161513">
-<img src="img/nebula.jpg" alt="Jeff Caylor speaking onstage in front of a starfield" style="width: 100%; aspect-ratio: 1.91 / 1; object-fit: cover; object-position: center 40%; display: block">
-<div style="padding: 0 24px 28px; display: flex; flex-direction: column; gap: 10px">
-<span style="font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #A9A196">LinkedIn article · [DATE]</span>
-<span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 32px; line-height: 1.02; text-transform: uppercase">Experience Over Self-Reliance</span>
-<span style="color: #CDC5B9; font-size: 16px; line-height: 1.5">Someone who has solved the problem 1,000 times can save you hours with a single sentence.</span>
-<span style="font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: #BBD7B7; padding-top: 6px">Read on LinkedIn ↗</span>
-</div>
+<a class="post" href="https://www.linkedin.com/posts/jeffcaylor_when-was-the-last-time-you-spent-days-weeks-ugcPost-7520070880740335616-A9kK/" target="_blank" rel="noopener">
+<img src="img/posts/2026-10-26-unanswered-questions.jpg" alt="Video: Enjoy the questions" loading="lazy">
+<span class="post-date">LinkedIn &#183; Oct 26, 2026</span>
+<span class="post-title">Enjoy the questions</span>
+<span class="post-dek">Maybe curiosity isn&#8217;t just about finding answers.</span>
 </a>
-<a href="#" style="text-decoration: none; display: flex; flex-direction: column; gap: 16px; background: #161513">
-<img src="img/circle-duo.jpg" alt="Jeff Caylor singing with guitar in front of a ring of light" style="width: 100%; aspect-ratio: 1.91 / 1; object-fit: cover; object-position: center 45%; display: block">
-<div style="padding: 0 24px 28px; display: flex; flex-direction: column; gap: 10px">
-<span style="font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #A9A196">LinkedIn article · [DATE]</span>
-<span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 32px; line-height: 1.02; text-transform: uppercase">Working on the Mona Lisa</span>
-<span style="color: #CDC5B9; font-size: 16px; line-height: 1.5">I don't want to optimize creativity until all that's left is convenience.</span>
-<span style="font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: #BBD7B7; padding-top: 6px">Read on LinkedIn ↗</span>
-</div>
+<a class="post" href="https://www.linkedin.com/posts/jeffcaylor_i-recently-had-a-conversation-about-something-ugcPost-7516746208246169600-29Qf/" target="_blank" rel="noopener">
+<img src="img/posts/2026-10-22-adaptability.jpg" alt="Video: Bringing others along" loading="lazy">
+<span class="post-date">LinkedIn &#183; Oct 22, 2026</span>
+<span class="post-title">Bringing others along</span>
+<span class="post-dek">Adaptability isn&#8217;t just how quickly I can move forward.</span>
+</a>
+<a class="post" href="https://www.linkedin.com/posts/jeffcaylor_one-of-the-greatest-gifts-hong-kong-gave-ugcPost-7517751343227518976-Sniw/" target="_blank" rel="noopener">
+<img src="img/posts/2026-10-19-hong-kong.jpg" alt="Video: What Hong Kong gave me" loading="lazy">
+<span class="post-date">LinkedIn &#183; Oct 19, 2026</span>
+<span class="post-title">What Hong Kong gave me</span>
+<span class="post-dek">A different understanding of what was possible.</span>
 </a>
 </div>
 </section>
@@ -175,7 +188,7 @@ html{scroll-behavior:smooth}img{max-width:100%}
 
 <footer style="max-width: 1360px; margin: 0 auto; padding: 36px 24px; display: flex; flex-wrap: wrap; gap: 16px 32px; justify-content: space-between; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: #8E877C">
 <span>© 2026 Jeff Caylor</span>
-<span style="display: flex; flex-wrap: wrap; gap: 24px"><a href="#" style="color: #A9A196">Instagram</a><a href="#" style="color: #A9A196">LinkedIn</a><a href="https://oaktone.com" style="color: #A9A196">Oaktone</a></span>
+<span style="display: flex; flex-wrap: wrap; gap: 24px"><a href="#" style="color: #A9A196">Instagram</a><a href="https://www.linkedin.com/in/jeffcaylor/" target="_blank" rel="noopener" style="color: #A9A196">LinkedIn</a><a href="https://oaktone.com" style="color: #A9A196">Oaktone</a></span>
 </footer>
 
 </div>
@@ -193,6 +206,17 @@ html{scroll-behavior:smooth}img{max-width:100%}
   nav.addEventListener('click',function(e){if(e.target.closest('a')) set(false);});
   document.addEventListener('keydown',function(e){if(e.key==='Escape') set(false);});
   window.addEventListener('resize',function(){if(window.innerWidth>720) set(false);});
+})();
+(function(){
+  var strip=document.getElementById('post-strip'); if(!strip) return;
+  var btns=document.querySelectorAll('.strip-btn');
+  function update(){
+    var max=strip.scrollWidth-strip.clientWidth-2;
+    btns.forEach(function(b){ b.disabled = b.dataset.dir==='-1' ? strip.scrollLeft<=2 : strip.scrollLeft>=max; });
+    document.querySelector('.strip-nav').style.visibility = max<=0 ? 'hidden' : 'visible';
+  }
+  btns.forEach(function(b){ b.addEventListener('click',function(){ strip.scrollBy({left:Number(b.dataset.dir)*strip.clientWidth*0.8,behavior:'smooth'}); }); });
+  strip.addEventListener('scroll',update,{passive:true}); window.addEventListener('resize',update); update();
 })();
 </script>
 </body>
