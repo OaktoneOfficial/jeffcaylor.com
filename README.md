@@ -1,5 +1,5 @@
 # jeffcaylor.com
 
-Single-page personal site for Jeff Caylor. Static HTML, hosted on GitHub Pages.
+Single-page personal site for Jeff Caylor. Static HTML, hosted on GitHub Pages at jeffcaylor.com (see CNAME).
 
-This is a preview build: it is marked noindex so search engines skip it until launch. The contact form needs a Formspree form ID in place of FORM_ID.
+The contact form posts to FormSubmit, which emails messages to Jeff.
