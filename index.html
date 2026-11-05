@@ -174,16 +174,17 @@ html{scroll-behavior:smooth}img{max-width:100%}
 <img src="img/back-spot.jpg" alt="Jeff Caylor onstage, seen from behind, facing the lights" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 30% center; display: block">
 <div style="position: absolute; inset: 0; background: rgba(13,13,12,0.35)"></div>
 <div style="position: relative; max-width: 1360px; margin: 0 auto; padding: 160px 24px; display: flex; justify-content: flex-end">
-<form id="contact-form" action="https://formsubmit.co/jeff@oaktone.com" method="POST" style="width: 100%; max-width: 560px; background: rgba(13,13,12,0.88); padding: 44px; box-sizing: border-box; display: flex; flex-direction: column; gap: 18px">
+<form id="contact-form" action="https://api.web3forms.com/submit" method="POST" style="width: 100%; max-width: 560px; background: rgba(13,13,12,0.88); padding: 44px; box-sizing: border-box; display: flex; flex-direction: column; gap: 18px">
 <h2 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 56px; line-height: 0.95; text-transform: uppercase">Let's talk</h2>
 <p style="margin: 0; color: #CDC5B9">Speaking, consulting, or a good conversation about building something that lasts.</p>
 <label style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #A9A196">Name<input type="text" name="name" required autocomplete="name" style="background: transparent; border: 0; border-bottom: 1px solid #5A554D; color: #F1ECE3; padding: 10px 0; font-size: 17px; letter-spacing: 0; text-transform: none"></label>
 <label style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #A9A196">Email<input type="email" name="email" required autocomplete="email" style="background: transparent; border: 0; border-bottom: 1px solid #5A554D; color: #F1ECE3; padding: 10px 0; font-size: 17px; letter-spacing: 0; text-transform: none"></label>
 <label style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #A9A196">Message<textarea name="message" rows="4" required style="background: transparent; border: 0; border-bottom: 1px solid #5A554D; color: #F1ECE3; padding: 10px 0; font-size: 17px; letter-spacing: 0; text-transform: none; resize: vertical"></textarea></label>
-<input type="hidden" name="_subject" value="New message from jeffcaylor.com">
-<input type="hidden" name="_template" value="table">
-<input type="hidden" name="_next" value="https://jeffcaylor.com/?sent=1#contact">
-<input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0">
+<input type="hidden" name="access_key" value="ca641b40-0570-4d6d-9972-6fa8f97a2324">
+<input type="hidden" name="subject" value="New message from jeffcaylor.com">
+<input type="hidden" name="from_name" value="jeffcaylor.com">
+<input type="hidden" name="redirect" value="https://jeffcaylor.com/?sent=1#contact">
+<input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="display: none">
 <p id="form-sent" hidden style="margin: 0; color: #BBD7B7">Thanks. Your message is on its way, and I&#8217;ll get back to you soon.</p>
 <button type="submit" style="align-self: flex-start; background: #F1ECE3; color: #0D0D0C; border: 0; padding: 14px 28px; font-weight: 600; font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer">Send</button>
 </form>
